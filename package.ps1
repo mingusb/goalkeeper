@@ -18,7 +18,8 @@ $temporaryArchive = Join-Path $output ('.package-' + [Guid]::NewGuid().ToString(
 # Explicitly list public source files. Never package settings, logs, or SDK caches.
 $files = [ordered]@{ 'Goalkeeper.exe' = $exe }
 foreach ($relative in @(
-    'README.md', 'LICENSE', 'build.ps1', 'package.ps1', 'global.json',
+    'README.md', 'PROJECT_GUIDE.md', 'project-overview.png', 'docs/readme-image-prompt.txt',
+    'LICENSE', 'build.ps1', 'package.ps1', 'global.json',
     '.gitignore', '.gitattributes', '.github/workflows/build.yml',
     'src/Goalkeeper/Program.cs', 'src/Goalkeeper/Goalkeeper.csproj', 'src/Goalkeeper/app.manifest'
 )) { $files[$relative] = Join-Path $PSScriptRoot $relative }
